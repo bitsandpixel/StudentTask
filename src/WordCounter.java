@@ -54,8 +54,8 @@ public class WordCounter {
                 //if the json object does not have a text property, the word counter of that item is set to zero.
                 if (jsonObject.has("text")) {
                     String text = jsonObject.getString("text");
-                    Pattern pattern = Pattern.compile("[a-zA-Z|']+");
-                    text = text.replaceAll("(<(.*?)>)(.*?)(</(.*?)>)|(<(.*?)>)", "");
+                    Pattern pattern = Pattern.compile("[a-zA-Z0-9|']+");
+                    text = text.replaceAll("(<(.*?)>)(</(.*?)>)|(<(.*?)>)", "");
                     Matcher match = pattern.matcher(text);
                     while (match.find()) {
                         wordCounter++;
