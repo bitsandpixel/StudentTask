@@ -27,7 +27,8 @@ public class WordCounter {
         int wordCounter = 0;
         BufferedReader reader;
         String line;
-        StringBuilder responseContent = new StringBuilder();
+//        StringBuilder responseContent = new StringBuilder();
+        String responseContent = "";
         System.out.println("WordCount | URL");
         for (int id = START; id <= END; id++) {
             try {
@@ -45,11 +46,11 @@ public class WordCounter {
                     reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
                 }
                 while ((line = reader.readLine()) != null) {
-                    responseContent = new StringBuilder().append(line);
+                    responseContent = line;
                 }
                 reader.close();
 
-                JSONObject jsonObject = new JSONObject(responseContent.toString());
+                JSONObject jsonObject = new JSONObject(responseContent);
 
                 //if the json object does not have a text property, the word counter of that item is set to zero.
                 if (jsonObject.has("text")) {
