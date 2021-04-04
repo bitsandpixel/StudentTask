@@ -67,9 +67,7 @@ public class WordCounter {
                 //initializing wordCounter to zero for the new News item.
                 wordCounter = 0;
 
-            } catch (MalformedURLException ex) {
-                Logger.getLogger(WordCounter.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (IOException ex) {
+            } catch (IOException ex) { // after collapsing catch blocks (MalformedURLException ex)
                 Logger.getLogger(WordCounter.class.getName()).log(Level.SEVERE, null, ex);
             } finally {
                 connection.disconnect();
